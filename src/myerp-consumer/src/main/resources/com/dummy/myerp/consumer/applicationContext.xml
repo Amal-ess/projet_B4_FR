@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+    <!-- ====================   Consumer   ==================== -->
+    <!-- AbstractDbConsumer -->
+    <bean id="DbConsumer"  class="com.dummy.myerp.consumer.db.DbConsumer">
+        <constructor-arg>
+            <map>
+                <entry value-ref="dataSourceMYERP">
+                    <key>
+                        <value type="com.dummy.myerp.consumer.db.DataSourcesEnum">MYERP</value>
+                    </key>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+    <!-- ==================== Databases ==================== -->
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSourceMYERP" primary="true">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://127.0.0.1:9032/db_myerp"/>
+        <property name="username" value="usr_myerp"/>
+        <property name="password" value="myerp"/>
+    </bean>
+
+
+    <!-- ========== SQL ========== -->
+    <import resource="sqlContext.xml"/>
+
+    <!-- ========== Transaction Managers ========== -->
+    <import resource="transactionContext.xml"/>
+</beans>
