@@ -20,13 +20,6 @@ public class EcritureComptableTest {
         return vRetour;
     }
 
-    @Test
-    public void shouldConstructWithJournal() {
-        //GIVEN
-
-        //WHEN
-        //THEN
-    }
 
     @Test
     public void shouldGetTotalDebit() {

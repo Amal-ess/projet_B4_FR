@@ -39,7 +39,8 @@ public class EcritureComptable {
 	 * The Reference.
 	 * Ex : 12345-1234/12345
 	 */
-	@Pattern(regexp = "\\d{1,5}-\\d{4}/\\d{5}")
+	//fixme
+	@Pattern(regexp = "\\w{1,5}-\\d{4}/\\d{5}")
 	private String reference;
 	/**
 	 * The Date.
